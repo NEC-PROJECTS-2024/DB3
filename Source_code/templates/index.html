@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calories Prediction App</title>
+    <style>
+        * {
+            margin-top: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: white; /* Pale Green Background */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 100vh;
+            margin-right: 170px;
+        }
+
+        .container {
+            background-color: #ffffff; /* White */
+            width: 420px;
+            border-radius: 20px;
+            /* box-shadow: 0px 0px 20px rgba(0.2, 0.2, 0, 0.2);  */
+            padding: 30px;
+        }
+
+        .image-container {
+            margin-right: 20px;
+        }
+
+        .left-image {
+            width: 700px; /* Adjust size as needed */
+            height: 500px;
+            position: fixed;
+            left: 70px; /* Adjust position as needed */
+            top: 70px; /* Adjust position as needed */
+            z-index: 1; /* Ensure it's above other elements */
+        }
+
+
+        .container h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 20px;
+            color: #3498db; /* Dark gray */
+        }
+
+        .container p {
+            margin-top: 7px;
+            margin-bottom: 10px;
+            color: #000; 
+            font-size: 18px;/* Medium gray */
+        }
+
+        .input-box {
+            margin-bottom: 10px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 12px;
+            background-color: #f9f9f9; /* Lighter gray */
+            border: 2px solid #eeeeee; /* Light gray */
+            border-radius: 10px;
+            font-size: 15px;
+            color: #333333; /* Dark gray */
+            outline: none;
+        }
+
+        .input-box input::placeholder {
+            color: #aaaaaa; /* Gray */
+        }
+
+        .submit_button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .submit_button input {
+            width: 45%;
+
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #ffffff; /* White */
+            background-color: #4caf50; /* Green */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit_button input:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        .submit_button input[type="reset"] {
+            background-color: #f44336; /* Red */
+        }
+
+        .submit_button input[type="reset"]:hover {
+            background-color: #d32f2f; /* Darker red */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="image-container">
+        <img src="../static/images/Calorie.jpg" alt="Image" class="left-image">
+    </div>
+    <h1>Calories Prediction</h1>
+    <form action="{{url_for('predict')}}" ,method="POST">
+        <p> Gender </p>
+        <select name="gender" required>
+            <option value="" disabled selected hidden></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <p> Age </p>
+        <div class="input-box">
+            <input type="text" name="age" placeholder="Enter User Age" required>
+        </div>
+        <p> Height </p>
+        <div class="input-box">
+            <input type="text" name="height" placeholder="Enter User Height" required>
+        </div>
+        <p> Weight </p>
+        <div class="input-box">
+            <input type="text" name="weight" placeholder="Enter User Weight" required>
+        </div>
+        <p> Duration </p>
+        <div class="input-box">
+            <input type="text" name="duration" placeholder="Enter User Duration" required>
+        </div>
+        <p> Heart Rate </p>
+        <div class="input-box">
+            <input type="text" name="heart_rate" placeholder="Enter User Heart Rate" required>
+        </div>
+        <p> Temperature </p>
+        <div class="input-box">
+            <input type="text" name="temp" placeholder="Enter User Temperature" required>
+        </div>
+        <div class="submit_button">
+            <input name="" type="submit" value="Predict">
+            <input name="" type="reset" onclick="myFunction()" value="Clear">
+        </div>
+    </form>
+</div>
+</body>
+</html>
